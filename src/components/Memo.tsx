@@ -34,7 +34,8 @@ export default function Memo({ value, onChange }: MemoProps) {
       style={{
         // 시안: 위에서 26px 지점부터 32px 간격, 2px 두께의 가로줄
         backgroundImage:
-          "repeating-linear-gradient(to bottom, var(--color-memo-line) 0, var(--color-memo-line) 2px, transparent 2px, transparent 32px)",
+          "linear-gradient(to bottom, var(--color-memo-line) 0, var(--color-memo-line) 2px, transparent 2px)",
+        backgroundSize: "100% 32px",
         backgroundPosition: "0 26px",
       }}
     >
