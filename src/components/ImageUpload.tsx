@@ -52,8 +52,8 @@ export default function ImageUpload({ src, onSelect }: ImageUploadProps) {
         type="button"
         onClick={() => inputRef.current?.click()}
         aria-label={src ? "이미지 변경" : "이미지 추가"}
-        className={`absolute right-4 bottom-4 flex h-16 w-16 items-center justify-center rounded-full ${
-          src ? "border-2 border-slate-900 bg-[rgba(15,23,42,0.5)]" : "bg-slate-200"
+        className={`absolute flex h-16 w-16 items-center justify-center rounded-full ${
+          src ? "right-4 bottom-4 border-2 border-slate-900 bg-[rgba(15,23,42,0.5)]" : "right-[14px] bottom-[14px] bg-slate-200"
         }`}
       >
         {src ? (

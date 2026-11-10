@@ -29,19 +29,23 @@ export default function Button({
     delete: "bg-rose-500 text-white",
   }[variant];
 
-  // 시안 버튼 본체는 164x52(그림자 4px 별도). 추가 버튼은 모바일 52x52, 태블릿 158px.
+  // 시안 추가 버튼 본체: 모바일 54.78px, 태블릿 158.5px, 데스크톱 164px.
   // 일반 버튼은 좁은 화면에서 줄어들 수 있게 한다.
   const size = compactOnMobile
-    ? "h-[52px] w-[52px] shrink-0 tablet:w-[158px] tablet:gap-1.5 desktop:w-[164px]"
-    : "h-[52px] w-[164px] min-w-0 shrink gap-1.5";
+    ? "h-[52px] w-[54.78px] shrink-0 shadow-[1.22px_4px_0_0_var(--color-slate-900)] tablet:w-[158.5px] tablet:gap-1.5 tablet:shadow-hard desktop:w-[164px]"
+    : "h-[52px] w-[164px] min-w-0 shrink";
+
+  const isDetailAction = variant === "edit" || variant === "delete";
 
   return (
     <button
-      className={`flex items-center justify-center rounded-[24px] border-2 border-slate-900 text-base font-bold shadow-hard transition-colors disabled:cursor-not-allowed ${color} ${size} ${className}`}
+      className={`flex items-center justify-center rounded-[24px] border-2 border-slate-900 text-base leading-[18px] font-bold ${compactOnMobile ? "" : "shadow-hard"} transition-colors disabled:cursor-not-allowed ${color} ${size} ${className}`}
       {...rest}
     >
-      {icon}
-      <span className={compactOnMobile ? "hidden tablet:inline" : ""}>{children}</span>
+      <span className={`flex items-center ${isDetailAction ? "translate-x-[2.5px] gap-1" : compactOnMobile ? "-translate-x-[2.5px] gap-1.5 tablet:translate-x-0" : "gap-1.5"}`}>
+        {isDetailAction ? <span className="flex size-4 items-center justify-center">{icon}</span> : icon}
+        <span className={compactOnMobile ? "hidden tablet:inline" : ""}>{children}</span>
+      </span>
     </button>
   );
 }

@@ -79,6 +79,8 @@ export default function TodoDetail() {
       router.push("/");
     } catch (e) {
       alert((e as Error).message);
+    } finally {
+      // Cache Components는 페이지를 떠나도 상태를 보존하므로 성공 시에도 해제한다.
       setSaving(false);
     }
   };
@@ -107,7 +109,7 @@ export default function TodoDetail() {
         <Memo value={memo} onChange={setMemo} />
       </div>
 
-      <div className="mt-6 flex justify-center gap-3 pr-1 tablet:gap-5 desktop:justify-end">
+      <div className={`mt-6 flex justify-center gap-3 pr-1 ${isDirty ? "tablet:gap-3" : "tablet:gap-5"} desktop:justify-end desktop:gap-5`}>
         <Button
           variant="edit"
           active={isDirty}

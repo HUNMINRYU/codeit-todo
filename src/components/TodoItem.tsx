@@ -11,14 +11,14 @@ interface TodoItemProps {
 export default function TodoItem({ todo, onToggle }: TodoItemProps) {
   return (
     <li
-      className={`flex h-[50px] items-center gap-4 rounded-[27px] border-2 border-slate-900 px-3 ${
+      className={`flex h-[50px] items-center gap-4 rounded-[27px] border-2 border-slate-900 px-[10px] ${
         todo.isCompleted ? "bg-violet-100" : "bg-white"
       }`}
     >
       <CheckBox checked={todo.isCompleted} onToggle={() => onToggle(todo)} />
       <Link
         href={`/items/${todo.id}`}
-        className={`flex-1 truncate text-base text-slate-800 ${todo.isCompleted ? "line-through" : ""}`}
+        className={`flex-1 truncate text-base leading-[18px] text-slate-800 ${todo.isCompleted ? "line-through" : ""}`}
       >
         {todo.name}
       </Link>

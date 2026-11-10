@@ -46,13 +46,13 @@ export default function TodoSection({ done, todos, onToggle }: TodoSectionProps)
             height={done ? 166 : 164}
             className={
               done
-                ? "hidden tablet:mt-[56px] tablet:block desktop:mt-[95px]"
-                : "hidden tablet:mt-[35px] tablet:block desktop:mt-[99px]"
+                ? "hidden tablet:mt-[55px] tablet:block tablet:-translate-x-[2px] desktop:mt-[95px]"
+                : "hidden tablet:mt-[35px] tablet:block tablet:-translate-x-[2.5px] desktop:mt-[99px]"
             }
           />
           <p
             className={`text-center text-base leading-[18px] font-bold text-slate-400 ${
-              done ? "mt-[35px] tablet:mt-16 desktop:mt-[65px]" : "mt-[35px] tablet:mt-[63px]"
+              done ? "mt-[37px] tablet:mt-[66px] desktop:mt-[67px]" : "mt-[36px] tablet:mt-[65px]"
             }`}
           >
             {EMPTY_TEXT[key][0]}

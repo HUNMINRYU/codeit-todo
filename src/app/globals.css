@@ -13,6 +13,7 @@
   --color-slate-200: #e2e8f0;
   --color-slate-100: #f1f5f9;
   --color-slate-50: #f8fafc;
+  --color-page: #f9fafb;
   --color-violet-600: #7c3aed;
   --color-violet-200: #ddd6fe;
   --color-violet-100: #ede9fe;
@@ -21,6 +22,7 @@
   --color-amber-800: #92400e;
   --color-memo: #fefce8;
   --color-memo-line: #fef3c7;
+  --color-memo-scroll: #fde68a;
 
   --font-sans: "NanumSquare", system-ui, sans-serif;
 
@@ -33,11 +35,43 @@
 }
 
 body {
-  @apply bg-slate-50 font-sans text-slate-800;
+  @apply bg-page font-sans text-slate-800;
 }
 
 /* 메모 스크롤바: 시안의 노란 스크롤 막대 */
 .memo-scroll {
   scrollbar-width: thin;
-  scrollbar-color: #fcd34d transparent;
+  scrollbar-color: var(--color-memo-scroll) transparent;
+}
+
+/* 지원하는 브라우저에서는 시안의 4px 막대를 사용한다. 길이는 내용에 비례한다. */
+@supports selector(::-webkit-scrollbar) {
+  .memo-scroll {
+    scrollbar-width: auto;
+    scrollbar-color: auto;
+  }
+
+  .memo-scroll::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .memo-scroll::-webkit-scrollbar-track {
+    margin-block: 6px;
+    background: transparent;
+  }
+
+  .memo-scroll::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background: var(--color-memo-scroll);
+  }
+
+  .memo-scroll::-webkit-scrollbar-button {
+    display: none;
+  }
+
+  @media (min-width: 744px) {
+    .memo-scroll::-webkit-scrollbar-track {
+      margin-block: 4px;
+    }
+  }
 }
