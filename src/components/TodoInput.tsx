@@ -29,13 +29,13 @@ export default function TodoInput({ onAdd }: TodoInputProps) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex gap-2 tablet:gap-4">
+    <form onSubmit={handleSubmit} className="flex gap-3 pr-1 tablet:gap-5">
       <input
         value={value}
         onChange={(e) => setValue(e.target.value)}
         placeholder="할 일을 입력해주세요"
         aria-label="할 일 입력"
-        className="h-14 min-w-0 flex-1 rounded-[24px] border-2 border-slate-900 bg-slate-100 px-6 text-base text-slate-900 shadow-hard outline-none placeholder:text-slate-500"
+        className="h-[52px] min-w-0 flex-1 rounded-[24px] border-2 border-slate-900 bg-slate-100 px-6 text-base text-slate-900 shadow-hard outline-none placeholder:text-slate-500"
       />
       <Button
         type="submit"
@@ -49,7 +49,9 @@ export default function TodoInput({ onAdd }: TodoInputProps) {
           <img
             src="/images/ic-plus-white.svg"
             alt=""
-            className={`h-4 w-4 ${hasText ? "" : "invert"}`}
+            width={14}
+            height={14}
+            className={hasText ? "" : "invert"}
           />
         }
       >

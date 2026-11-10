@@ -10,9 +10,9 @@ export default function Gnb() {
         {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
         <a href="/" aria-label="홈으로 이동">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/logo-small.svg" alt="do it;" className="h-10 tablet:hidden" />
+          <img src="/images/logo-small.svg" alt="do it;" width={59} height={34} className="ml-1.5 tablet:hidden" />
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/logo-large.svg" alt="do it;" className="hidden h-10 tablet:block" />
+          <img src="/images/logo-large.svg" alt="do it;" width={141} height={34} className="ml-[3px] hidden tablet:block" />
         </a>
       </div>
     </header>

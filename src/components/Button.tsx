@@ -29,10 +29,11 @@ export default function Button({
     delete: "bg-rose-500 text-white",
   }[variant];
 
-  // 일반 버튼은 좁은 모바일 화면에서 168px보다 줄어들 수 있게 한다
+  // 시안 버튼 본체는 164x52(그림자 4px 별도). 추가 버튼은 모바일 52x52, 태블릿 158px.
+  // 일반 버튼은 좁은 화면에서 줄어들 수 있게 한다.
   const size = compactOnMobile
-    ? "h-14 w-14 shrink-0 tablet:w-[168px] tablet:gap-1"
-    : "h-14 w-[168px] min-w-0 shrink gap-1";
+    ? "h-[52px] w-[52px] shrink-0 tablet:w-[158px] tablet:gap-1.5 desktop:w-[164px]"
+    : "h-[52px] w-[164px] min-w-0 shrink gap-1.5";
 
   return (
     <button

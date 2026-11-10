@@ -49,7 +49,7 @@ export default function HomePage() {
       {loading ? (
         <p className="mt-10 text-center text-slate-400">불러오는 중...</p>
       ) : (
-        <div className="mt-6 flex flex-col gap-12 tablet:mt-10 desktop:flex-row desktop:gap-6">
+        <div className="mt-7 flex flex-col gap-12 tablet:mt-11 desktop:flex-row desktop:gap-6">
           <TodoSection done={false} todos={inProgress} onToggle={handleToggle} />
           <TodoSection done todos={done} onToggle={handleToggle} />
         </div>

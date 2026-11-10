@@ -16,13 +16,17 @@ export default function NameBar({ name, isCompleted, onNameChange, onToggle }: N
       }`}
     >
       <CheckBox checked={isCompleted} onToggle={onToggle} />
-      <input
-        value={name}
-        onChange={(e) => onNameChange(e.target.value)}
-        aria-label="할 일 이름"
-        size={Math.max(name.length, 1) + 2}
-        className="max-w-[80%] bg-transparent text-xl font-bold text-slate-900 underline outline-none"
-      />
+      {/* 입력란 폭을 글자 길이에 맞추기 위해, 같은 글자를 숨긴 span과 같은 칸에 겹쳐 둔다 */}
+      <span className="inline-grid max-w-[80%] text-xl font-bold text-slate-900 underline">
+        <span className="invisible col-start-1 row-start-1 overflow-hidden whitespace-pre">{name || " "}</span>
+        <input
+          value={name}
+          onChange={(e) => onNameChange(e.target.value)}
+          aria-label="할 일 이름"
+          size={1}
+          className="col-start-1 row-start-1 w-full min-w-0 bg-transparent underline outline-none"
+        />
+      </span>
     </div>
   );
 }

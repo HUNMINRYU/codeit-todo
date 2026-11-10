@@ -43,7 +43,9 @@ export default function ImageUpload({ src, onSelect }: ImageUploadProps) {
         <img
           src="/images/ic-img.svg"
           alt=""
-          className="absolute top-1/2 left-1/2 h-16 w-16 -translate-x-1/2 -translate-y-1/2"
+          width={54}
+          height={54}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
         />
       )}
       <button
@@ -51,11 +53,16 @@ export default function ImageUpload({ src, onSelect }: ImageUploadProps) {
         onClick={() => inputRef.current?.click()}
         aria-label={src ? "이미지 변경" : "이미지 추가"}
         className={`absolute right-4 bottom-4 flex h-16 w-16 items-center justify-center rounded-full ${
-          src ? "border-2 border-slate-900 bg-slate-900/50" : "bg-slate-200"
+          src ? "border-2 border-slate-900 bg-[rgba(15,23,42,0.5)]" : "bg-slate-200"
         }`}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={src ? "/images/ic-edit.svg" : "/images/ic-plus-gray.svg"} alt="" className="h-6 w-6" />
+        {src ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src="/images/ic-edit.svg" alt="" width={13} height={18} />
+        ) : (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src="/images/ic-plus-gray.svg" alt="" width={21} height={21} />
+        )}
       </button>
       <input ref={inputRef} type="file" accept="image/*" hidden onChange={handleChange} />
     </div>

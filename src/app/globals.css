@@ -29,9 +29,15 @@
   --breakpoint-desktop: 1200px;
 
   /* 버튼·입력창에 쓰이는 블러 없는 하드 섀도 */
-  --shadow-hard: 4px 3.5px 0 0 #0f172a;
+  --shadow-hard: 4px 4px 0 0 #0f172a;
 }
 
 body {
   @apply bg-slate-50 font-sans text-slate-800;
+}
+
+/* 메모 스크롤바: 시안의 노란 스크롤 막대 */
+.memo-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #fcd34d transparent;
 }

@@ -107,14 +107,14 @@ export default function TodoDetail() {
         <Memo value={memo} onChange={setMemo} />
       </div>
 
-      <div className="mt-6 flex justify-center gap-2 tablet:gap-4 desktop:justify-end">
+      <div className="mt-6 flex justify-center gap-3 pr-1 tablet:gap-5 desktop:justify-end">
         <Button
           variant="edit"
           active={isDirty}
           disabled={saving}
           onClick={handleSave}
           // eslint-disable-next-line @next/next/no-img-element
-          icon={<img src="/images/ic-check.svg" alt="" className="h-4 w-4" />}
+          icon={<img src="/images/ic-check.svg" alt="" width={14} height={10} />}
         >
           수정 완료
         </Button>
@@ -123,7 +123,7 @@ export default function TodoDetail() {
           disabled={saving}
           onClick={handleDelete}
           // eslint-disable-next-line @next/next/no-img-element
-          icon={<img src="/images/ic-x.svg" alt="" className="h-4 w-4" />}
+          icon={<img src="/images/ic-x.svg" alt="" width={10} height={10} />}
         >
           삭제하기
         </Button>
